@@ -34,7 +34,7 @@ npm run build
 
 1.You can simply add products to your cart.
 
-    - Click product card and it takes you product details page , you can choose your attributes and add to cart.
+    * Click product card and it takes you product details page , you can choose your attributes and add to cart.
 
 2.Change quantity of the product. - You can change the quantity on cart overlay or on cart page.
 
