@@ -1,0 +1,11 @@
+.category-name {
+    text-align: start;
+    margin: 4rem 0;
+    font-weight: 400;
+    font-size: 42px;
+}
+.category-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

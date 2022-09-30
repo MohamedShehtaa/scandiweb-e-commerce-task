@@ -1,0 +1,21 @@
+.shopping-section_cart {
+    font-size: 18px;
+    position: relative;
+    border: none;
+    background-color: white;
+}
+.shopping-section_cart:hover {
+    cursor: pointer;
+}
+.cartLength {
+    position: absolute;
+    bottom: 0.9rem;
+    left: 0.9rem;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    padding: 2px 5px;
+    font-weight: 400;
+}

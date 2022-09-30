@@ -1,0 +1,14 @@
+.overlay-container {
+    width: 30%;
+    height: 60%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 3rem;
+    padding: 32px 16px 32px 16px;
+}
+@media only screen and (max-width: 800px) {
+    .overlay-container {
+        width: 70%;
+    }
+}

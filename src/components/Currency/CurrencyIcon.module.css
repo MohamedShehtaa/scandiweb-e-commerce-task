@@ -1,0 +1,53 @@
+.select-section {
+    position: relative;
+    cursor: pointer;
+}
+
+.select-icon {
+    width: 3rem;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+.select-icon:hover {
+    cursor: pointer;
+}
+
+.select-icon img {
+    transition: transform 0.3s ease;
+}
+.select-icon span {
+    padding-right: 0.5rem;
+}
+
+.select-section:hover .select-icon img {
+    transform: rotateX(180deg);
+}
+
+.select-options__container {
+    position: absolute;
+    top: 2.5rem;
+    right: -2rem;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    transition: 0.3s;
+    visibility: hidden;
+    text-align: center;
+    list-style-type: none;
+    background-color: white;
+    box-shadow: 0 3px 30px 0 #f3f3f3;
+    z-index: 11;
+}
+.select-section:hover .select-options__container {
+    opacity: 1;
+    visibility: visible;
+}
+@media only screen and (max-width: 600px) {
+    .select-section::after {
+        right: -0.5rem;
+    }
+}

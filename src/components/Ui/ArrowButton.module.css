@@ -1,0 +1,23 @@
+.arrow {
+    background-image: url('../../assets/images/Curruncy-arrow.svg');
+    background-size: 1.1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1.5rem;
+    width: 10%;
+    position: absolute;
+    top: 50%;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 0px inset #858581;
+}
+.next {
+    left: 80%;
+    transform: rotate(90deg);
+}
+.previous {
+    left: 10%;
+    transform: rotate(-90deg);
+}
