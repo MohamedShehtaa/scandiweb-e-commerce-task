@@ -4,7 +4,7 @@
 
 This project is example of e-commerce web app that allows you to have some basic funtionallities. If you want to add more , please fork this repository and contriubute with your own logic.
 
-# setUp
+# setup
 
 First go clone this repository to run the server for the endpoints GraphQl EndPoint [GraphQl EndPoint](https://github.com/MohamedShehtaa/junior-react-endpoint).\*
 
@@ -34,7 +34,7 @@ npm run build
 
 1. You can simply add products to your cart.
 
-    * Click product card and it takes you product details page , you can choose your attributes and add to cart.
+    - Click product card and it takes you product details page , you can choose your attributes and add to cart.
 
 2. Change quantity of the product.
 

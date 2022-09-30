@@ -58,6 +58,7 @@ class ProductCard extends Component {
             }));
         }
     }
+
     render() {
         const { product, currentSymbol } = this.props;
         const { currentAmount, currentImage } = this.state;
