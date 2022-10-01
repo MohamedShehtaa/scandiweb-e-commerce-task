@@ -1,0 +1,19 @@
+.product-brand,
+.product-name {
+    margin: 0;
+}
+.product-brand {
+    font-weight: 600;
+}
+.product-name {
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+.product-price {
+    margin: 1rem 0;
+    font-size: 18px;
+}
+.product-description {
+    font-size: 16px;
+    font-weight: 400;
+}

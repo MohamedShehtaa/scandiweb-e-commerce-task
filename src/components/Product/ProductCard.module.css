@@ -48,7 +48,7 @@
     font-weight: 300;
     line-height: 1;
 }
-.product-card__desc small {
+.product-card__price {
     font-weight: 500;
 }
 .product-card__addBtn {

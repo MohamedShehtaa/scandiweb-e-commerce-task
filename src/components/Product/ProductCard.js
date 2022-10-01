@@ -6,33 +6,16 @@ import AddToCardIcon from '../Ui/AddToCardIcon';
 import Arrow from '../Ui/ArrowButton';
 import classes from './ProductCard.module.css';
 import { addItemToCart } from '../../store/slicers/cartSlice';
+import ProductPrice from './ProductPrice';
 
 class ProductCard extends Component {
     constructor() {
         super();
         this.state = {
             currentImage: 0,
-            currentAmount: 0,
         };
     }
 
-    componentDidMount() {
-        this.setState({
-            currentAmount: this.props.product.prices[0].amount,
-        });
-    }
-    componentDidUpdate(prev, curr) {
-        const { currentSymbol } = this.props;
-        const { prices } = this.props.product;
-        if (prev.currentSymbol !== currentSymbol) {
-            const filteredAmount = prices.find(
-                (price) => price.currency.symbol === currentSymbol
-            );
-            this.setState({
-                currentAmount: filteredAmount.amount,
-            });
-        }
-    }
     addToCartClickHandler() {
         this.props.addToCart(this.props.product);
     }
@@ -60,8 +43,8 @@ class ProductCard extends Component {
     }
 
     render() {
-        const { product, currentSymbol } = this.props;
-        const { currentAmount, currentImage } = this.state;
+        const { product } = this.props;
+        const { currentImage } = this.state;
         const inStock = product.inStock;
         const arrows =
             product.gallery.length === 1 ? (
@@ -105,9 +88,7 @@ class ProductCard extends Component {
                             <p className={classes['product-card__brand']}>
                                 {product.brand} {product.name}
                             </p>
-                            <small className={classes['product-card__price']}>
-                                {currentSymbol} {currentAmount}
-                            </small>
+                            <ProductPrice prices={product.prices} />
                         </div>
                     </div>
                 </Link>
@@ -126,12 +107,10 @@ class ProductCard extends Component {
         );
     }
 }
-const mapStateToProps = (state) => ({
-    currentSymbol: state.currency.selectedSymbol,
-});
+
 const mapDispatchToProps = (dispatch) => {
     return {
         addToCart: (item) => dispatch(addItemToCart(item)),
     };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);
+export default connect(null, mapDispatchToProps)(ProductCard);
