@@ -1,0 +1,28 @@
+.btn {
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    margin: 1rem 0;
+}
+.btn:disabled,
+.btn[disabled='true'] {
+    border: none;
+    background-color: #cccccc;
+    color: #eee;
+    cursor: not-allowed;
+    transform: none;
+}
+.btn-normal {
+    background-color: #5ece7b;
+    border: 1px solid white;
+    color: white;
+}
+.btn-bag {
+    background-color: #fff;
+    color: #1d1f22;
+    border: 1px solid #1d1f22;
+}
+.btn-bag:hover {
+    background-color: #1d1f22;
+    color: #fff;
+}

@@ -3,8 +3,6 @@
     justify-content: space-between;
     height: 60vh;
     text-align: start;
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 .product-page__images {
     width: 50%;
@@ -12,7 +10,8 @@
     justify-content: space-around;
 }
 .product-page__description {
-    width: 45%;
+    width: 40%;
+    padding-left: 1rem;
     overflow-y: auto;
     display: flex;
     flex-direction: column;

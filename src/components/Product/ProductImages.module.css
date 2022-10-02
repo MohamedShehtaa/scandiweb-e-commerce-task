@@ -1,0 +1,16 @@
+.images-container {
+    position: relative;
+    width: 100%;
+}
+.images-container img {
+    max-width: 100%;
+}
+.arrows {
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+.images-container:hover .arrows {
+    opacity: 0.8;
+    visibility: visible;
+}

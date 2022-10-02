@@ -1,0 +1,26 @@
+.size {
+    padding: 0.4rem;
+    margin-right: 0.5rem;
+    border: 1px solid #1d1f22;
+    background-color: #ffff;
+    transition: 0.2s ease;
+    cursor: pointer;
+    font-size: 14px;
+}
+.size:hover,
+.size.active {
+    background-color: #1d1f22;
+    color: #ffff;
+}
+.color {
+    padding: 0.8rem;
+    margin-right: 0.4rem;
+    outline: none;
+    border: 2px solid #ffff;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+.color:hover,
+.color.active {
+    border: 2px solid #5ece7b;
+}

@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+
 import Gallery from '../components/Product/Gallery';
 import ProductDescription from '../components/Product/ProductDescription';
-
+import LoadingSpinner from '../components/Ui/LoadingSpinner';
 import withRouter from '../utils/WithRouterHOC';
 import classes from './ProductPage.module.css';
 
@@ -28,7 +29,7 @@ class ProductPage extends Component {
     render() {
         const { product } = this.state;
 
-        if (product.length === 0) return <p>Loading...</p>;
+        if (product.length === 0) return <LoadingSpinner />;
         else
             return (
                 <section className={classes['product-page']}>

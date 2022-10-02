@@ -38,5 +38,29 @@ body {
 }
 .varient {
     font-weight: 700;
+}
+.product-brand,
+.product-name {
+    margin: 0;
+}
+.product-brand {
+    font-weight: 600;
+}
+.product-name {
+    font-weight: 400;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.product-price {
+    margin: 0 0 1rem 0;
     font-size: 18px;
+}
+.product-price p {
+    font-size: 16px;
+    margin-bottom: 0.4rem;
+}
+
+.product-description {
+    font-size: 16px;
+    font-weight: 400;
 }
