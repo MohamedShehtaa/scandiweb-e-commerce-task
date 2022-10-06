@@ -3,11 +3,15 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Layout from './components/Layout/Layout';
-import LoadingSpinner from './components/Ui/LoadingSpinner';
-import CategoryPage from './pages/CategoryPage';
-import ProductPage from './pages/ProductPage';
 import Notifcation from './components/Ui/Notifcation';
+import LoadingSpinner from './components/Ui/LoadingSpinner';
+// import CategoryPage from './pages/CategoryPage';
+// import ProductPage from './pages/ProductPage';
+// import CartPage from './pages/CartPage';
 
+const CategoryPage = React.lazy(() => import('./pages/CategoryPage'));
+const ProductPage = React.lazy(() => import('./pages/ProductPage'));
+const CartPage = React.lazy(() => import('./pages/CartPage'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 class App extends Component {
@@ -54,6 +58,10 @@ class App extends Component {
                                 />
                             </Route>
                             <Route
+                                path='/cart'
+                                element={<CartPage />}
+                            />
+                            <Route
                                 path='*'
                                 element={<NotFound />}
                             />
@@ -67,6 +75,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
     product: state?.product?.data,
-    isSuccess: state?.status.status.success,
+    isSuccess: state?.ui.status.success,
 });
 export default connect(mapStateToProps)(App);

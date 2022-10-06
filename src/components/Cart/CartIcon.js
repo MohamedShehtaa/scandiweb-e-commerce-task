@@ -1,48 +1,47 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-
 import AddToCardIcon from '../Ui/AddToCardIcon';
 import classes from './CartIcons.module.css';
 import CartOverLay from './CartOverLay';
-
+import { uiActions } from '../../store/slicers/uiSlice';
 
 class CartIcon extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showModel: false,
-        };
-        this.modelClickhandler = this.modelClickhandler.bind(this);
-    }
     modelClickhandler() {
-        this.setState((prevState) => ({
-            showModel: !prevState.showModel,
-        }));
+        const { showOverlay, showModel } = this.props;
+        showOverlay(!showModel);
     }
     render() {
-        const { items } = this.props.cart;
+        const { cart, showModel } = this.props;
         const counter =
-            items.length === 0 ? (
+            cart.items.length === 0 ? (
                 ''
             ) : (
-                <span className={classes['cartLength']}>{items.length}</span>
+                <span className={classes['cartLength']}>
+                    {cart.items.length}
+                </span>
             );
         return (
             <div>
                 <button
                     className={classes['shopping-section_cart']}
-                    onClick={this.modelClickhandler}
+                    onClick={this.modelClickhandler.bind(this)}
                 >
                     <AddToCardIcon />
                     {counter}
                 </button>
-                <section>{this.state.showModel && <CartOverLay />}</section>
+                <section>{showModel && <CartOverLay />}</section>
             </div>
         );
     }
 }
 const mapStateToProps = (state) => ({
     cart: state.cart,
+    showModel: state.ui.overlayShowen,
 });
-export default connect(mapStateToProps)(CartIcon);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        showOverlay: (item) => dispatch(uiActions.showOverlay(item)),
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);

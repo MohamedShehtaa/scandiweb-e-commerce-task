@@ -8,6 +8,7 @@ const UiSlice = createSlice({
             isLoading: false,
             error: false,
         },
+        overlayShowen: false,
     },
     reducers: {
         dataStatus(state, action) {
@@ -16,6 +17,9 @@ const UiSlice = createSlice({
                 isLoading: action.payload.isLoading,
                 error: action.payload.error,
             };
+        },
+        showOverlay(state, action) {
+            state.overlayShowen = action.payload;
         },
     },
 });

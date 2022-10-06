@@ -4,19 +4,32 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 1rem;
-    width: 1rem;
+    width: 10%;
+    bottom: 10%;
     position: absolute;
-    bottom: 5%;
     background-color: black;
     border: none;
     cursor: pointer;
     box-shadow: 0px 0px 2px 0px inset #858581;
 }
 .next {
-    left: 85%;
+    left: 80%;
     transform: rotate(90deg);
 }
 .previous {
-    left: 73%;
+    left: 60%;
     transform: rotate(-90deg);
+}
+@media only screen and (max-width: 800px) {
+    .arrow {
+        height: 10%;
+        width: 10%;
+        bottom: 15%;
+    }
+    .next {
+        left: 75%;
+    }
+    .previous {
+        left: 55%;
+    }
 }

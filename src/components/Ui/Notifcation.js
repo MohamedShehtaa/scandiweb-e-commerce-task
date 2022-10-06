@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import LoadingSpinner from './LoadingSpinner';
 
+// to handle loading and error for user
 class Notifaction extends Component {
     render() {
         const { isLoading, error } = this.props?.status;
@@ -21,6 +22,6 @@ class Notifaction extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    status: state?.status?.status,
+    status: state?.ui?.status,
 });
 export default connect(mapStateToProps)(Notifaction);

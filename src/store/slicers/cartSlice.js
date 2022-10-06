@@ -10,42 +10,85 @@ export const cartSlice = createSlice({
     },
     reducers: {
         addItemToCart(state, action) {
-            state.items.push(action.payload);
-            // const newItem = action.payload;
-            // const existingItem = state.items.find(
-            //     (item) => item.id === newItem.id
-            // );
-            // state.totalQuantity++;
-            // if (!existingItem) {
-            //     state.items.push({
-            //         id: newItem.id,
-            //         price: newItem.price,
-            //         quantity: 1,
-            //         totalPrice: newItem.price,
-            //         name: newItem.name,
-            //     });
-            // } else {
-            //     existingItem.quantity++;
-            //     existingItem.totalPrice =
-            //         existingItem.totalPrice + newItem.price;
-            // }
+            const newItem = action.payload;
+            //check if this product is exit end items or not
+            const existingItem = state.items.find(
+                (item) => item.id === newItem.id
+            );
+
+            state.totalQuantity++;
+            state.totalAmount =
+                state.totalAmount + newItem.currentPrice.totalAmount;
+            //if not add new one
+            if (!existingItem) {
+                state.items.push({
+                    ...newItem,
+                    quantity: 1,
+                });
+            } else {
+                //if exist and with different attribute
+                const existingItemWithNewAttribute = state.items.find(
+                    (item) =>
+                        JSON.stringify(item.choosenAttributes) ===
+                        JSON.stringify(newItem.choosenAttributes)
+                );
+
+                if (!existingItemWithNewAttribute) {
+                    state.items.push({
+                        ...newItem,
+                        quantity: 1,
+                    });
+                } else {
+                    //if exist with same attribute increase quantity
+                    existingItemWithNewAttribute.quantity++;
+                }
+            }
         },
         removeItemFromCart(state, action) {
-            const id = action.payload;
-            const exisitngItem = state.items.find((item) => item.id === id);
+            const newItem = action.payload;
+            //search with attributes of the product
+            const existingItemWithNewAttribute = state.items.find(
+                (item) =>
+                    JSON.stringify(item.choosenAttributes) ===
+                    JSON.stringify(newItem.choosenAttributes)
+            );
             state.totalQuantity--;
-            if (exisitngItem.quantity === 1) {
-                state.items = state.items.filter((item) => item.id !== id);
+            state.totalAmount =
+                state.totalAmount -
+                existingItemWithNewAttribute.currentPrice.totalAmount;
+
+            if (existingItemWithNewAttribute.quantity === 1) {
+                state.items = state.items.filter(
+                    (item) =>
+                        JSON.stringify(item.choosenAttributes) !==
+                        JSON.stringify(
+                            existingItemWithNewAttribute.choosenAttributes
+                        )
+                );
             } else {
-                exisitngItem.quantity--;
-                exisitngItem.totalPrice =
-                    exisitngItem.totalPrice - exisitngItem.price;
+                existingItemWithNewAttribute.quantity--;
+            }
+        },
+        //increse target product
+        increaseQuantity(state, action) {
+            const newItem = action.payload;
+            const existingItemWithNewAttribute = state.items.find(
+                (item) =>
+                    JSON.stringify(item.choosenAttributes) ===
+                    JSON.stringify(newItem.choosenAttributes)
+            );
+            if (existingItemWithNewAttribute) {
+                existingItemWithNewAttribute.quantity++;
+                state.totalQuantity++;
+                state.totalAmount =
+                    state.totalAmount +
+                    existingItemWithNewAttribute.currentPrice.totalAmount;
             }
         },
     },
 });
 
-export const { addItemToCart, removeItemFromCart } = cartSlice.actions;
+export const { addItemToCart, removeItemFromCart, increaseQuantity } =
+    cartSlice.actions;
 
 export default cartSlice;
-//, changeQuantity, clearError

@@ -9,6 +9,6 @@ export default configureStore({
         product: productSlice.reducer,
         currency: currencySlice.reducer,
         cart: cartSlice.reducer,
-        status: UiSlice.reducer,
+        ui: UiSlice.reducer,
     },
 });

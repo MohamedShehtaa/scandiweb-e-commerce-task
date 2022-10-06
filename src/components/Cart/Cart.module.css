@@ -1,0 +1,36 @@
+.cart-container {
+    text-align: center;
+}
+.items {
+    width: 100%;
+    text-align: start;
+}
+.item {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+.item-desc {
+    height: 30%;
+}
+.quantity-container {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.quantity-btn button {
+    display: block;
+}
+
+.images {
+    width: 50%;
+}
+@media only screen and (max-width: 800px) {
+    .images {
+        width: 70%;
+    }
+}

@@ -41,15 +41,12 @@
 .product-card__desc {
     margin-top: 1rem;
     font-size: 18px;
+    font-weight: 600;
+}
+.product-card__desc p:first-child {
+    font-weight: 300;
 }
 
-.product-card__desc p {
-    font-weight: 300;
-    line-height: 1;
-}
-.product-card__price {
-    font-weight: 500;
-}
 .product-card__addBtn {
     position: absolute;
     top: 100%;

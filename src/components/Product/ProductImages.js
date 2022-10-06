@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Arrow from '../Ui/ArrowButton';
 import classes from './ProductImages.module.css';
+
+// to switch the images in cart + overlay
 export default class ProductImages extends Component {
     constructor() {
         super();

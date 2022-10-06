@@ -1,0 +1,12 @@
+.quantity-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    color: #1d1f22;
+}
+.quantity-btn button {
+    background-color: white;
+    border: 1px solid #1d1f22;
+    cursor: pointer;
+}

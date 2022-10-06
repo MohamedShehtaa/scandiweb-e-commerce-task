@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+// if any erorr happen in production env led to crash the website
 class ErrorBoundary extends Component {
     constructor() {
         super();

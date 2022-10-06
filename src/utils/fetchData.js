@@ -3,6 +3,7 @@ import { dataQuery } from '../graphql/queries';
 import store from '../store/store';
 import { uiActions } from '../store/slicers/uiSlice';
 
+// fetch data from graphQl endpoint
 const fetchData = async () => {
     const result = await fetch(URL, {
         method: 'POST',
